@@ -5,13 +5,13 @@ public class CarDto {
     private Long carId;
     private String brand;
     private String model;
-    private String color;
+    private CarColor color;
     private Integer productionYear;
 
     public CarDto() {
     }
 
-    public CarDto(Long carId, String brand, String model, String color, Integer productionYear) {
+    public CarDto(Long carId, String brand, String model, CarColor color, Integer productionYear) {
         this.carId = carId;
         this.brand = brand;
         this.model = model;
@@ -43,11 +43,11 @@ public class CarDto {
         this.model = model;
     }
 
-    public String getColor() {
+    public CarColor getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(CarColor color) {
         this.color = color;
     }
 

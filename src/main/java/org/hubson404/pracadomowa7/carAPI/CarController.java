@@ -21,6 +21,11 @@ public class CarController {
         return carDao.findAll();
     }
 
+    @GetMapping("/cars/filterByYear")
+    public List<CarDto> getCarsProducedBetweenYears(@RequestParam(required = false) Integer from, @RequestParam(required = false) Integer to) {
+        return carDao.findCarsProducedBetweenYears(from, to);
+    }
+
     @PostMapping("/cars")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveCar(@RequestBody CarDto carDto) {
