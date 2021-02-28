@@ -1,4 +1,4 @@
-package org.hubson404.pracadomowa7.carAPI;
+package org.hubson404.pracadomowa7.cars;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

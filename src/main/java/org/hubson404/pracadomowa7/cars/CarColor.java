@@ -1,4 +1,4 @@
-package org.hubson404.pracadomowa7.carAPI;
+package org.hubson404.pracadomowa7.cars;
 
 public enum CarColor {
 
