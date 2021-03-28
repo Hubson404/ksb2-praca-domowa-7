@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class NewsController {
 
     private final RemoteNewsService remoteNewsService;

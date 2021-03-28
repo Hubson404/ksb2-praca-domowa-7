@@ -26,13 +26,25 @@ public class CarDao {
 
     public void save(CarDto carDto) {
         String sql = "INSERT INTO CARS (BRAND, MODEL, COLOR, PRODUCTION_YEAR) VALUES (?,?,?,?)";
-        jdbcTemplate.update(sql, carDto.getBrand(), carDto.getModel(), carDto.getColor().toString(), carDto.getProductionYear());
+        jdbcTemplate.update(
+                sql,
+                carDto.getBrand(),
+                carDto.getModel(),
+                carDto.getColor().toString(),
+                carDto.getProductionYear()
+        );
     }
 
     public void update(CarDto carDto) {
         String sql = "UPDATE CARS SET CARS.BRAND=?, CARS.MODEL=?, CARS.COLOR=?, CARS.PRODUCTION_YEAR=?, WHERE CAR_ID=?";
-        jdbcTemplate.update(sql, carDto.getBrand(), carDto.getModel(), carDto.getColor().toString(),
-                carDto.getProductionYear(), carDto.getCarId());
+        jdbcTemplate.update(
+                sql,
+                carDto.getBrand(),
+                carDto.getModel(),
+                carDto.getColor().toString(),
+                carDto.getProductionYear(),
+                carDto.getCarId()
+        );
     }
 
     public void delete(int id) {

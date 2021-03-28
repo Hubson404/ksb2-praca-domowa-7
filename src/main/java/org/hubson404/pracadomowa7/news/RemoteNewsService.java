@@ -77,23 +77,22 @@ public class RemoteNewsService {
 
     private List<NewsDto> filterWithExistingNewsFromDb(List<NewsDto> dtos) {
 
-        List<String> tenLatestNewsIds = findTenLatestNews();
+        List<String> tenLatestNewsIds = findNews();
         List<NewsDto> filteredNews = dtos.stream()
                 .filter(entry -> !tenLatestNewsIds.contains(entry.getId()))
                 .collect(Collectors.toList());
         return filteredNews;
     }
 
-    private List<String> findTenLatestNews() {
+    private List<String> findNews() {
 
-        List<String> latestNewsIds = new ArrayList<>();
-        String sql = "SELECT TOP 10 * FROM NEWS ORDER BY PUBLISHED_AT DESC";
+        List<String> allNewsIds = new ArrayList<>();
+        String sql = "SELECT * FROM NEWS ORDER BY PUBLISHED_AT DESC";
         List<Map<String, Object>> query = jdbcTemplate.queryForList(sql);
-        query.forEach(entry -> latestNewsIds.add(String.valueOf(entry.get("id"))));
+        query.forEach(entry -> allNewsIds.add(String.valueOf(entry.get("id"))));
 
-        return latestNewsIds;
+        return allNewsIds;
     }
-
 
     private void saveNewsToDatabase(List<NewsDto> filteredNews) {
         filteredNews.forEach(this::saveSingleNewsToDatabase);

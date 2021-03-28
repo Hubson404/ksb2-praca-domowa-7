@@ -1,0 +1,74 @@
+<button
+  (click)="onOpenAddForm()"
+  *ngIf="!openAddForm"
+  class="btn btn-block btn-primary">Add New Car
+</button>
+<div *ngIf="openAddForm">
+  <form #carForm="ngForm" (ngSubmit)="onAddCar()">
+    <div class="form-group">
+      <label>Brand</label>
+      <input
+        class="form-control"
+        name="brand"
+        ngModel
+        required
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input
+        class="form-control"
+        name="model"
+        ngModel
+        required
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label>Color</label>
+      :
+      <select
+        #carColor
+        class="form-inline"
+        name="color"
+        ngModel>
+        <option value="RED">red</option>
+        <option value="BLUE">blue</option>
+        <option value="BLACK">black</option>
+        <option value="WHITE">white</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Produced</label>
+      <input
+        class="form-control"
+        name="productionYear"
+        ngModel
+        required
+        type="text"
+      />
+    </div>
+    <button
+      [disabled]="!carForm.valid || carColor.value == 'Select color'"
+      class="btn btn-primary"
+      type="submit"
+    >
+      Add Car
+    </button>
+    |
+    <button
+      (click)="onClearInput()"
+      class="btn btn-warning"
+      type="button">
+      Clear Input
+    </button>
+    |
+    <button
+      (click)="onCloseForm()"
+      class="btn btn-danger"
+      type="button">
+      Close Form
+    </button>
+  </form>
+</div>

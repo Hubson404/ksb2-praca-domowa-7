@@ -1,0 +1,41 @@
+<h3>Filter cars</h3>
+<h3>by production year</h3>
+<form #filterForm="ngForm" (ngSubmit)="onFilter(filterForm.value)">
+  <div class="form-group">
+    <label for="fromYear">From</label>
+    <input
+      [(ngModel)]="fromYear"
+      class="form-control"
+      id="fromYear"
+      name="fromYear"
+      required
+      type="text"
+      value=""
+    />
+  </div>
+  <div class="form-group">
+    <label for="toYear">To</label>
+    <input
+      [(ngModel)]="toYear"
+      class="form-control"
+      id="toYear"
+      name="toYear"
+      required
+      type="text"
+    />
+  </div>
+  <button
+    class="btn btn-primary"
+    type="submit"
+  >
+    Filter
+  </button>
+  |
+  <button
+    (click)="onClearFilter()"
+    class="btn btn-warning"
+    type="button"
+  >
+    Clear Filter
+  </button>
+</form>
